@@ -1,7 +1,7 @@
 .globl main
 // mvn reverses the bits
 func:
-	orn	x0, x0, x1
+	bic	x0, x0, x1
 	and	x0, x0, 1
 	ret
 main:

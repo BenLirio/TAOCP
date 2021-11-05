@@ -35,7 +35,12 @@ DL1:
 main:
 	sub	sp, sp, 32
 	stur	x30, [sp]
-	mov	x0, 10
+	adr	x0, s
+	mov	x1, 0
+	stur	x1, [sp, 8]
+	add	x1, sp, 8
+b:	bl	scanf
+	ldur	x0, [sp, 8]
 	bl	permutations
 	ldur	x30, [sp]
 	add	sp, sp, 32
