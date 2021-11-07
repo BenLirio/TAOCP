@@ -1,0 +1,2 @@
+#ifndef 
+double mysqrt(double);
