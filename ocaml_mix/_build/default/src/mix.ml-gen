@@ -1,0 +1,14 @@
+(** @canonical Mix.Ast *)
+module Ast = Mix__Ast
+
+
+(** @canonical Mix.Interp *)
+module Interp = Mix__Interp
+
+
+(** @canonical Mix.Lexer *)
+module Lexer = Mix__Lexer
+
+
+(** @canonical Mix.Parser *)
+module Parser = Mix__Parser
