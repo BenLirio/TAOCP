@@ -1,0 +1,53 @@
+(lang dune 3.0)
+(name mix)
+(sections (lib .) (libexec .))
+(files
+ (lib
+  (META
+   ast.ml
+   dune-package
+   lexer.ml
+   mix.a
+   mix.cma
+   mix.cmi
+   mix.cmt
+   mix.cmx
+   mix.cmxa
+   mix.ml
+   mix__Ast.cmi
+   mix__Ast.cmt
+   mix__Ast.cmx
+   mix__Lexer.cmi
+   mix__Lexer.cmt
+   mix__Lexer.cmx
+   mix__Parser.cmi
+   mix__Parser.cmt
+   mix__Parser.cmti
+   mix__Parser.cmx
+   opam
+   parser.ml
+   parser.mli))
+ (libexec (mix.cmxs)))
+(library
+ (name mix)
+ (kind normal)
+ (synopsis "Interpreter for MIX")
+ (archives (byte mix.cma) (native mix.cmxa))
+ (plugins (byte mix.cma) (native mix.cmxs))
+ (native_archives mix.a)
+ (main_module_name Mix)
+ (modes byte native)
+ (modules
+  (wrapped
+   (main_module_name Mix)
+   (modules
+    ((name Ast) (obj_name mix__Ast) (visibility public) (impl))
+    ((name Lexer) (obj_name mix__Lexer) (visibility public) (impl))
+    ((name Parser) (obj_name mix__Parser) (visibility public) (impl) (intf)))
+   (alias_module
+    (name Mix)
+    (obj_name mix)
+    (visibility public)
+    (kind alias)
+    (impl))
+   (wrapped true))))

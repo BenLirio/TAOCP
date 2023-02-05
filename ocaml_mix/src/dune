@@ -1,0 +1,17 @@
+(library
+ (name    mix)      ; name of the opam library
+ (public_name mix)  ; required for generating documentation
+                    ; also requires let.opam in root of workspace
+ (synopsis "Interpreter for MIX")
+ ;; (wrapped      false) ; true by default
+)
+
+; the next line avoids warnings from stopping the build
+(env
+  (dev
+   (flags (:standard -warn-error -A))))
+
+(ocamllex lexer)
+
+(menhir
+  (modules parser))

@@ -1,0 +1,6 @@
+description = "Interpreter for MIX"
+requires = ""
+archive(byte) = "mix.cma"
+archive(native) = "mix.cmxa"
+plugin(byte) = "mix.cma"
+plugin(native) = "mix.cmxs"
