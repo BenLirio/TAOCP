@@ -1,5 +1,5 @@
-.global _start
-_start:
+.global _main
+_main:
 
   // Subcube
   // 00 11
